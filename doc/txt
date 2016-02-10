@@ -1,0 +1,25 @@
+comment
+	author
+	date
+	content
+	
+author
+	email
+	password
+	nick
+	avatar
+	
+
+pages
+
+
+
+ easy_install django-pagination
+ easy_install django-tagging
+
+
+/etc/init.d/apache2 start
+
+mysql --user=root --password=cthdth2
+DROP DATABASE logoclon;
+CREATE DATABASE logoclon;

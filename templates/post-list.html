@@ -1,0 +1,16 @@
+{% load comments %}
+{% load pagination_tags %}
+
+{% autopaginate postList 1 %}
+{% for i in postList %}
+{% get_comment_count for i as comment_count %}
+<h2 class="entry-title"><a href="/post/{{ i.id }}/">{{ i.title }}</a></h2>
+<div class="comments">
+    <a href="/admin/main/post/{{ i.id }}/delete/" target="_blank">Удалить |
+    <a href="/admin/main/post/{{ i.id }}/" target="_blank">Редактировать</a> |
+    <a href="/post/{{ i.id }}/#comments">Комментaриев ({{ comment_count }})</a>
+</div>
+<div class="article wysiwyg">{% autoescape off %}{{ i.content_cut }}{% endautoescape %}</div>
+<hr/>
+{% endfor %}
+{% paginate %}

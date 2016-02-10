@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>Django Tagging</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="django-tagging">
+<h1 class="title">Django Tagging</h1>
+
+<p>A generic tagging application for <a class="reference external" href="http://www.djangoproject.com">Django</a> projects, which allows
+association of a number of tags with any Django model instance and makes
+retrieval of tags simple.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#installation" id="id7">Installation</a><ul>
+<li><a class="reference internal" href="#installing-an-official-release" id="id8">Installing an official release</a><ul>
+<li><a class="reference internal" href="#source-distribution" id="id9">Source distribution</a></li>
+<li><a class="reference internal" href="#windows-installer" id="id10">Windows installer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-the-development-version" id="id11">Installing the development version</a></li>
+<li><a class="reference internal" href="#using-django-tagging-in-your-applications" id="id12">Using Django Tagging in your applications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#settings" id="id13">Settings</a><ul>
+<li><a class="reference internal" href="#force-lowercase-tags" id="id14">FORCE_LOWERCASE_TAGS</a></li>
+<li><a class="reference internal" href="#max-tag-length" id="id15">MAX_TAG_LENGTH</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tags" id="id16">Tags</a><ul>
+<li><a class="reference internal" href="#api-reference" id="id17">API reference</a><ul>
+<li><a class="reference internal" href="#fields" id="id18">Fields</a></li>
+<li><a class="reference internal" href="#manager-functions" id="id19">Manager functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-usage" id="id20">Basic usage</a><ul>
+<li><a class="reference internal" href="#tag-input" id="id21">Tag input</a></li>
+<li><a class="reference internal" href="#tagging-objects-and-retrieving-an-object-s-tags" id="id22">Tagging objects and retrieving an object's tags</a></li>
+<li><a class="reference internal" href="#retrieving-tags-used-by-a-particular-model" id="id23">Retrieving tags used by a particular model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tagged-items" id="id24">Tagged items</a><ul>
+<li><a class="reference internal" href="#id1" id="id25">API reference</a><ul>
+<li><a class="reference internal" href="#id2" id="id26">Fields</a></li>
+<li><a class="reference internal" href="#id3" id="id27">Manager functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id28">Basic usage</a><ul>
+<li><a class="reference internal" href="#retrieving-tagged-objects" id="id29">Retrieving tagged objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilities" id="id30">Utilities</a><ul>
+<li><a class="reference internal" href="#parse-tag-input-input" id="id31"><tt class="docutils literal"><span class="pre">parse_tag_input(input)</span></tt></a></li>
+<li><a class="reference internal" href="#edit-string-for-tags-tags" id="id32"><tt class="docutils literal"><span class="pre">edit_string_for_tags(tags)</span></tt></a></li>
+<li><a class="reference internal" href="#get-tag-list-tags" id="id33"><tt class="docutils literal"><span class="pre">get_tag_list(tags)</span></tt></a></li>
+<li><a class="reference internal" href="#calculate-cloud-tags-steps-4-distribution-tagging-utils-logarithmic" id="id34"><tt class="docutils literal"><span class="pre">calculate_cloud(tags,</span> <span class="pre">steps=4,</span> <span class="pre">distribution=tagging.utils.LOGARITHMIC)</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-fields" id="id35">Model Fields</a><ul>
+<li><a class="reference internal" href="#field-types" id="id36">Field types</a><ul>
+<li><a class="reference internal" href="#tagfield" id="id37"><tt class="docutils literal"><span class="pre">TagField</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form-fields" id="id38">Form fields</a><ul>
+<li><a class="reference internal" href="#id5" id="id39">Field types</a><ul>
+<li><a class="reference internal" href="#id6" id="id40"><tt class="docutils literal"><span class="pre">TagField</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simplified-tagging-and-retrieval-of-tags-with-properties" id="id41">Simplified tagging and retrieval of tags with properties</a></li>
+<li><a class="reference internal" href="#generic-views" id="id42">Generic views</a><ul>
+<li><a class="reference internal" href="#tagging-views-tagged-object-list" id="id43"><tt class="docutils literal"><span class="pre">tagging.views.tagged_object_list</span></tt></a><ul>
+<li><a class="reference internal" href="#example-usage" id="id44">Example usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#template-tags" id="id45">Template tags</a><ul>
+<li><a class="reference internal" href="#tag-reference" id="id46">Tag reference</a><ul>
+<li><a class="reference internal" href="#tags-for-model" id="id47">tags_for_model</a></li>
+<li><a class="reference internal" href="#tag-cloud-for-model" id="id48">tag_cloud_for_model</a></li>
+<li><a class="reference internal" href="#tags-for-object" id="id49">tags_for_object</a></li>
+<li><a class="reference internal" href="#tagged-objects" id="id50">tagged_objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h1><a class="toc-backref" href="#id7">Installation</a></h1>
+<div class="section" id="installing-an-official-release">
+<h2><a class="toc-backref" href="#id8">Installing an official release</a></h2>
+<p>Official releases are made available from
+<a class="reference external" href="http://code.google.com/p/django-tagging/">http://code.google.com/p/django-tagging/</a></p>
+<div class="section" id="source-distribution">
+<h3><a class="toc-backref" href="#id9">Source distribution</a></h3>
+<p>Download the .zip distribution file and unpack it. Inside is a script
+named <tt class="docutils literal"><span class="pre">setup.py</span></tt>. Enter this command:</p>
+<pre class="literal-block">
+python setup.py install
+</pre>
+<p>...and the package will install automatically.</p>
+</div>
+<div class="section" id="windows-installer">
+<h3><a class="toc-backref" href="#id10">Windows installer</a></h3>
+<p>A Windows installer is also made available - download the .exe
+distribution file and launch it to install the application.</p>
+<p>An uninstaller will also be created, accessible through Add/Remove
+Programs in your Control Panel.</p>
+</div>
+</div>
+<div class="section" id="installing-the-development-version">
+<h2><a class="toc-backref" href="#id11">Installing the development version</a></h2>
+<p>Alternatively, if you'd like to update Django Tagging occasionally to pick
+up the latest bug fixes and enhancements before they make it into an
+offical release, perform a <a class="reference external" href="http://subversion.tigris.org">Subversion</a> checkout instead. The following
+command will check the application's development branch out to an
+<tt class="docutils literal"><span class="pre">tagging-trunk</span></tt> directory:</p>
+<pre class="literal-block">
+svn checkout http://django-tagging.googlecode.com/svn/trunk/ tagging-trunk
+</pre>
+<p>Add the resulting folder to your <a class="reference external" href="http://docs.python.org/tut/node8.html#SECTION008110000000000000000">PYTHONPATH</a> or symlink (<a class="reference external" href="http://www.microsoft.com/technet/sysinternals/FileAndDisk/Junction.mspx">junction</a>,
+if you're on Windows) the <tt class="docutils literal"><span class="pre">tagging</span></tt> directory inside it into a
+directory which is on your PYTHONPATH, such as your Python
+installation's <tt class="docutils literal"><span class="pre">site-packages</span></tt> directory.</p>
+<p>You can verify that the application is available on your PYTHONPATH by
+opening a Python interpreter and entering the following commands:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import tagging
+&gt;&gt;&gt; tagging.VERSION
+(0, 2, 'pre')
+</pre>
+<p>When you want to update your copy of the Django Tagging source code, run
+the command <tt class="docutils literal"><span class="pre">svn</span> <span class="pre">update</span></tt> from within the <tt class="docutils literal"><span class="pre">tagging-trunk</span></tt> directory.</p>
+<div class="caution">
+<p class="first admonition-title">Caution!</p>
+<p>The development version may contain bugs which are not present in the
+release version and introduce backwards-incompatible changes.</p>
+<p class="last">If you're tracking trunk, keep an eye on the <a class="reference external" href="http://django-tagging.googlecode.com/svn/trunk/CHANGELOG.txt">CHANGELOG</a> and the
+<a class="reference external" href="http://code.google.com/p/django-tagging/wiki/BackwardsIncompatibleChanges">backwards-incompatible changes wiki page</a> before you update your
+copy of the source code.</p>
+</div>
+</div>
+<div class="section" id="using-django-tagging-in-your-applications">
+<h2><a class="toc-backref" href="#id12">Using Django Tagging in your applications</a></h2>
+<p>Once you've installed Django Tagging and want to use it in your Django
+applications, do the following:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Put <tt class="docutils literal"><span class="pre">'tagging'</span></tt> in your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt> setting.</li>
+<li>Run the command <tt class="docutils literal"><span class="pre">manage.py</span> <span class="pre">syncdb</span></tt>.</li>
+</ol>
+</blockquote>
+<p>The <tt class="docutils literal"><span class="pre">syncdb</span></tt> command creates the necessary database tables and
+creates permission objects for all installed apps that need them.</p>
+<p>That's it!</p>
+</div>
+</div>
+<div class="section" id="settings">
+<h1><a class="toc-backref" href="#id13">Settings</a></h1>
+<p>Some of Django Tagging's behaviour may be configured by adding the
+appropriate settings to your project's settings file.</p>
+<p>The following settings are available:</p>
+<div class="section" id="force-lowercase-tags">
+<h2><a class="toc-backref" href="#id14">FORCE_LOWERCASE_TAGS</a></h2>
+<p>Default: <tt class="docutils literal"><span class="pre">False</span></tt></p>
+<p>A boolean that turns on/off forcing of all tag names to lowercase before
+they are saved to the database.</p>
+</div>
+<div class="section" id="max-tag-length">
+<h2><a class="toc-backref" href="#id15">MAX_TAG_LENGTH</a></h2>
+<p>Default: <tt class="docutils literal"><span class="pre">50</span></tt></p>
+<p>An integer which specifies the maxiumum length which any tag is allowed
+to have. This is used for validation in the <tt class="docutils literal"><span class="pre">django.contrib.admin</span></tt>
+application and in any <tt class="docutils literal"><span class="pre">newforms</span></tt> forms automatically generated using
+<tt class="docutils literal"><span class="pre">ModelForm</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="tags">
+<h1><a class="toc-backref" href="#id16">Tags</a></h1>
+<p>Tags are represented by the <tt class="docutils literal"><span class="pre">Tag</span></tt> model, which lives in the
+<tt class="docutils literal"><span class="pre">tagging.models</span></tt> module.</p>
+<div class="section" id="api-reference">
+<h2><a class="toc-backref" href="#id17">API reference</a></h2>
+<div class="section" id="fields">
+<h3><a class="toc-backref" href="#id18">Fields</a></h3>
+<p><tt class="docutils literal"><span class="pre">Tag</span></tt> objects have the following fields:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt> -- The name of the tag. This is a unique value.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="manager-functions">
+<h3><a class="toc-backref" href="#id19">Manager functions</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">Tag</span></tt> model has a custom manager which has the following helper
+functions:</p>
+<blockquote>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">update_tags(obj,</span> <span class="pre">tag_names)</span></tt> -- updates tags associated with an
+object.</p>
+<p><tt class="docutils literal"><span class="pre">tag_names</span></tt> is a string containing tag names with which <tt class="docutils literal"><span class="pre">obj</span></tt>
+should be tagged.</p>
+<p>If <tt class="docutils literal"><span class="pre">tag_names</span></tt> is <tt class="docutils literal"><span class="pre">None</span></tt> or <tt class="docutils literal"><span class="pre">''</span></tt>, the object's tags will be
+cleared.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">add_tag(obj,</span> <span class="pre">tag_name)</span></tt> -- associates a tag with an an object.</p>
+<p><tt class="docutils literal"><span class="pre">tag_name</span></tt> is a string containing a tag name with which <tt class="docutils literal"><span class="pre">obj</span></tt>
+should be tagged.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">get_for_object(obj)</span></tt> -- returns a <tt class="docutils literal"><span class="pre">QuerySet</span></tt> containing all
+<tt class="docutils literal"><span class="pre">Tag</span></tt> objects associated with <tt class="docutils literal"><span class="pre">obj</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">usage_for_model(Model,</span> <span class="pre">counts=False,</span> <span class="pre">min_count=None,</span> <span class="pre">filters=None)</span></tt>
+-- returns a list of <tt class="docutils literal"><span class="pre">Tag</span></tt> objects associated with instances of
+<tt class="docutils literal"><span class="pre">Model</span></tt>.</p>
+<p>If <tt class="docutils literal"><span class="pre">counts</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>, a <tt class="docutils literal"><span class="pre">count</span></tt> attribute will be added to
+each tag, indicating how many times it has been associated with
+instances of <tt class="docutils literal"><span class="pre">Model</span></tt>.</p>
+<p>If <tt class="docutils literal"><span class="pre">min_count</span></tt> is given, only tags which have a <tt class="docutils literal"><span class="pre">count</span></tt> greater
+than or equal to <tt class="docutils literal"><span class="pre">min_count</span></tt> will be returned. Passing a value
+for <tt class="docutils literal"><span class="pre">min_count</span></tt> implies <tt class="docutils literal"><span class="pre">counts=True</span></tt>.</p>
+<p>To limit the tags (and counts, if specified) returned to those used
+by a subset of the model's instances, pass a dictionary of field
+lookups to be applied to <tt class="docutils literal"><span class="pre">Model</span></tt> as the <tt class="docutils literal"><span class="pre">filters</span></tt> argument.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">related_for_model(tags,</span> <span class="pre">Model,</span> <span class="pre">counts=False,</span> <span class="pre">min_count=None)</span></tt>
+-- returns a list of tags related to a given list of tags - that
+is, other tags used by items which have all the given tags.</p>
+<p>If <tt class="docutils literal"><span class="pre">counts</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>, a <tt class="docutils literal"><span class="pre">count</span></tt> attribute will be added to
+each tag, indicating the number of items which have it in addition
+to the given list of tags.</p>
+<p>If <tt class="docutils literal"><span class="pre">min_count</span></tt> is given, only tags which have a <tt class="docutils literal"><span class="pre">count</span></tt> greater
+than or equal to <tt class="docutils literal"><span class="pre">min_count</span></tt> will be returned. Passing a value
+for <tt class="docutils literal"><span class="pre">min_count</span></tt> implies <tt class="docutils literal"><span class="pre">counts=True</span></tt>.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">cloud_for_model(Model,</span> <span class="pre">steps=4,</span> <span class="pre">distribution=LOGARITHMIC,</span>
+<span class="pre">filters=None,</span> <span class="pre">min_count=None)</span></tt> -- returns a list of the
+distinct <tt class="docutils literal"><span class="pre">Tag</span></tt> objects associated with instances of <tt class="docutils literal"><span class="pre">Model</span></tt>,
+each having a <tt class="docutils literal"><span class="pre">count</span></tt> attribute as above and an additional
+<tt class="docutils literal"><span class="pre">font_size</span></tt> attribute, for use in creation of a tag cloud (a
+type of weighted list).</p>
+<p><tt class="docutils literal"><span class="pre">steps</span></tt> defines the number of font sizes available -
+<tt class="docutils literal"><span class="pre">font_size</span></tt> may be an integer between <tt class="docutils literal"><span class="pre">1</span></tt> and <tt class="docutils literal"><span class="pre">steps</span></tt>,
+inclusive.</p>
+<p><tt class="docutils literal"><span class="pre">distribution</span></tt> defines the type of font size distribution
+algorithm which will be used - logarithmic or linear. It must be
+either <tt class="docutils literal"><span class="pre">tagging.utils.LOGARITHMIC</span></tt> or <tt class="docutils literal"><span class="pre">tagging.utils.LINEAR</span></tt>.</p>
+<p>To limit the tags displayed in the cloud to those associated
+with a subset of the Model's instances, pass a dictionary of
+field lookups to be applied to the given Model as the <tt class="docutils literal"><span class="pre">filters</span></tt>
+argument.</p>
+<p>To limit the tags displayed in the cloud to those with a <tt class="docutils literal"><span class="pre">count</span></tt>
+greater than or equal to <tt class="docutils literal"><span class="pre">min_count</span></tt>, pass a value for the
+<tt class="docutils literal"><span class="pre">min_count</span></tt> argument.</p>
+</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<h2><a class="toc-backref" href="#id20">Basic usage</a></h2>
+<div class="section" id="tag-input">
+<h3><a class="toc-backref" href="#id21">Tag input</a></h3>
+<p>Tag input from users is treated as follows:</p>
+<ul>
+<li><p class="first">If the tag input doesn't contain any commas or double quotes, it is
+simply treated as a space-delimited list of tag names.</p>
+</li>
+<li><p class="first">If the tag input does contain either of these characters, we parse the
+input like so:</p>
+<blockquote>
+<ul class="simple">
+<li>Groups of characters which appear between double quotes take
+precedence as multi-word tags (so double quoted tag names may
+contain commas). An unclosed double quote will be ignored.</li>
+<li>For the remaining input, if there are any unquoted commas in the
+input, the remainder will be treated as comma-delimited.
+Otherwise, it will be treated as space-delimited.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>Examples:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="36%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Tag input</th>
+<th class="head">Resulting tag names</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>apple ball cat</td>
+<td>[<tt class="docutils literal"><span class="pre">apple</span></tt>], [<tt class="docutils literal"><span class="pre">ball</span></tt>], [<tt class="docutils literal"><span class="pre">cat</span></tt>]</td>
+<td>No commas or quotes, so space delimited</td>
+</tr>
+<tr><td>apple, ball cat</td>
+<td>[<tt class="docutils literal"><span class="pre">apple</span></tt>], [<tt class="docutils literal"><span class="pre">ball</span> <span class="pre">cat</span></tt>]</td>
+<td>Comma present, so comma delimited</td>
+</tr>
+<tr><td>&quot;apple, ball&quot; cat dog</td>
+<td>[<tt class="docutils literal"><span class="pre">apple,</span> <span class="pre">ball</span></tt>], [<tt class="docutils literal"><span class="pre">cat</span></tt>], [<tt class="docutils literal"><span class="pre">dog</span></tt>]</td>
+<td>All commas are quoted, so space delimited</td>
+</tr>
+<tr><td>&quot;apple, ball&quot;, cat dog</td>
+<td>[<tt class="docutils literal"><span class="pre">apple,</span> <span class="pre">ball</span></tt>], [<tt class="docutils literal"><span class="pre">cat</span> <span class="pre">dog</span></tt>]</td>
+<td>Contains an unquoted comma, so comma delimited</td>
+</tr>
+<tr><td>apple &quot;ball cat&quot; dog</td>
+<td>[<tt class="docutils literal"><span class="pre">apple</span></tt>], [<tt class="docutils literal"><span class="pre">ball</span> <span class="pre">cat</span></tt>], [<tt class="docutils literal"><span class="pre">dog</span></tt>]</td>
+<td>No commas, so space delimited</td>
+</tr>
+<tr><td>&quot;apple&quot; &quot;ball dog</td>
+<td>[<tt class="docutils literal"><span class="pre">apple</span></tt>], [<tt class="docutils literal"><span class="pre">ball</span></tt>], [<tt class="docutils literal"><span class="pre">dog</span></tt>]</td>
+<td>Unclosed double quote is ignored</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tagging-objects-and-retrieving-an-object-s-tags">
+<h3><a class="toc-backref" href="#id22">Tagging objects and retrieving an object's tags</a></h3>
+<p>Objects may be tagged using the <tt class="docutils literal"><span class="pre">update_tags</span></tt> helper function:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from shop.apps.products.models import Widget
+&gt;&gt;&gt; from tagging.models import Tag
+&gt;&gt;&gt; widget = Widget.objects.get(pk=1)
+&gt;&gt;&gt; Tag.objects.update_tags(widget, 'house thing')
+</pre>
+<p>Retrieve tags for an object using the <tt class="docutils literal"><span class="pre">get_for_object</span></tt> helper
+function:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; Tag.objects.get_for_object(widget)
+[&lt;Tag: house&gt;, &lt;Tag: thing&gt;]
+</pre>
+<p>Tags are created, associated and unassociated accordingly when you use
+<tt class="docutils literal"><span class="pre">update_tags</span></tt> and <tt class="docutils literal"><span class="pre">add_tags</span></tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; Tag.objects.update_tags(widget, 'house monkey')
+&gt;&gt;&gt; Tag.objects.get_for_object(widget)
+[&lt;Tag: house&gt;, &lt;Tag: monkey&gt;]
+&gt;&gt;&gt; Tag.objects.add_tag(widget, 'tiles')
+&gt;&gt;&gt; Tag.objects.get_for_object(widget)
+[&lt;Tag: house&gt;, &lt;Tag: monkey&gt;, &lt;Tag: tiles&gt;]
+</pre>
+<p>Clear an object's tags by passing <tt class="docutils literal"><span class="pre">None</span></tt> or <tt class="docutils literal"><span class="pre">''</span></tt> to
+<tt class="docutils literal"><span class="pre">update_tags</span></tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; Tag.objects.update_tags(widget, None)
+&gt;&gt;&gt; Tag.objects.get_for_object(widget)
+[]
+</pre>
+</div>
+<div class="section" id="retrieving-tags-used-by-a-particular-model">
+<h3><a class="toc-backref" href="#id23">Retrieving tags used by a particular model</a></h3>
+<p>To retrieve all tags used for a particular model, use the
+<tt class="docutils literal"><span class="pre">get_for_model</span></tt> helper function:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; widget1 = Widget.objects.get(pk=1)
+&gt;&gt;&gt; Tag.objects.update_tags(widget1, 'house thing')
+&gt;&gt;&gt; widget2 = Widget.objects.get(pk=2)
+&gt;&gt;&gt; Tag.objects.update_tags(widget2, 'cheese toast house')
+&gt;&gt;&gt; Tag.objects.usage_for_model(Widget)
+[&lt;Tag: cheese&gt;, &lt;Tag: house&gt;, &lt;Tag: thing&gt;, &lt;Tag: toast&gt;]
+</pre>
+<p>To get a count of how many times each tag was used for a particular
+model, pass in <tt class="docutils literal"><span class="pre">True</span></tt> for the <tt class="docutils literal"><span class="pre">counts</span></tt> argument:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; tags = Tag.objects.usage_for_model(Widget, counts=True)
+&gt;&gt;&gt; [(tag.name, tag.count) for tag in tags]
+[('cheese', 1), ('house', 2), ('thing', 1), ('toast', 1)]
+</pre>
+<p>To get counts and limit the tags returned to those with counts above a
+certain size, pass in a <tt class="docutils literal"><span class="pre">min_count</span></tt> argument:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; tags = Tag.objects.usage_for_model(Widget, min_count=2)
+&gt;&gt;&gt; [(tag.name, tag.count) for tag in tags]
+[('house', 2)]
+</pre>
+<p>You can also specify a dictionary of <a class="reference external" href="http://www.djangoproject.com/documentation/db-api/#field-lookups">field lookups</a> to be used to
+restrict the tags and counts returned based on a subset of the
+model's instances. For example, the following would retrieve all tags
+used on Widgets created by a user named Alan which have a size
+greater than 99:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; Tag.objects.usage_for_model(Widget, filters=dict(size__gt=99, user__username='Alan'))
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="tagged-items">
+<h1><a class="toc-backref" href="#id24">Tagged items</a></h1>
+<p>The relationship between a <tt class="docutils literal"><span class="pre">Tag</span></tt> and an object is represented by
+the <tt class="docutils literal"><span class="pre">TaggedItem</span></tt> model, which lives in the <tt class="docutils literal"><span class="pre">tagging.models</span></tt>
+module.</p>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id25">API reference</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id26">Fields</a></h3>
+<p><tt class="docutils literal"><span class="pre">TaggedItem</span></tt> objects have the following fields:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">tag</span></tt> -- The <tt class="docutils literal"><span class="pre">Tag</span></tt> an object is associated with.</li>
+<li><tt class="docutils literal"><span class="pre">content_type</span></tt> -- The <tt class="docutils literal"><span class="pre">ContentType</span></tt> of the associated model
+instance.</li>
+<li><tt class="docutils literal"><span class="pre">object_id</span></tt> -- The id of the associated object.</li>
+<li><tt class="docutils literal"><span class="pre">object</span></tt> -- The associated object itself, accessible via the
+Generic Relations API.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id27">Manager functions</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">TaggedItem</span></tt> model has a custom manager which has the following
+helper functions:</p>
+<blockquote>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">get_by_model(Model,</span> <span class="pre">tag)</span></tt> -- If <tt class="docutils literal"><span class="pre">tag</span></tt> is an instance of a
+<tt class="docutils literal"><span class="pre">Tag</span></tt>, returns a <tt class="docutils literal"><span class="pre">QuerySet</span></tt> containing all instances of
+<tt class="docutils literal"><span class="pre">Model</span></tt> which are tagged with it.</p>
+<p>If <tt class="docutils literal"><span class="pre">tag</span></tt> is a list of tags, returns a <tt class="docutils literal"><span class="pre">QuerySet</span></tt> containing
+all instances of <tt class="docutils literal"><span class="pre">Model</span></tt> which are tagged with every tag in
+the list.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">get_intersection_by_model(Model,</span> <span class="pre">tags)</span></tt> -- Returns a
+<tt class="docutils literal"><span class="pre">QuerySet</span></tt> containing all instances of <tt class="docutils literal"><span class="pre">Model</span></tt> which are
+tagged with every tag in the list.</p>
+<p><tt class="docutils literal"><span class="pre">get_by_model</span></tt> will call this function behind the scenes when
+you pass it a list, so it's recommended that you use
+<tt class="docutils literal"><span class="pre">get_by_model</span></tt> instead of calling this function directly.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">get_union_by_model(Model,</span> <span class="pre">tags)</span></tt> -- Returns a <tt class="docutils literal"><span class="pre">QuerySet</span></tt>
+containing all instances of <tt class="docutils literal"><span class="pre">Model</span></tt> which are tagged with any tag
+in the list.</p>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">get_related(obj,</span> <span class="pre">Model,</span> <span class="pre">num=None)</span></tt> - Returns instances of
+<tt class="docutils literal"><span class="pre">Model</span></tt> which share tags with the model instance <tt class="docutils literal"><span class="pre">obj</span></tt>,
+ordered by the number of shared tags in descending order.</p>
+<p>If <tt class="docutils literal"><span class="pre">num</span></tt> is given, a maximum of <tt class="docutils literal"><span class="pre">num</span></tt> instances will be
+returned.</p>
+</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id28">Basic usage</a></h2>
+<div class="section" id="retrieving-tagged-objects">
+<h3><a class="toc-backref" href="#id29">Retrieving tagged objects</a></h3>
+<p>Objects may be retrieved based on their tags using the <tt class="docutils literal"><span class="pre">get_by_model</span></tt>
+manager method:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from shop.apps.products.models import Widget
+&gt;&gt;&gt; from tagging.models import Tag
+&gt;&gt;&gt; house_tag = Tag.objects.get(name='house')
+&gt;&gt;&gt; TaggedItem.objects.get_by_model(Widget, house_tag)
+[&lt;Widget: pk=1&gt;, &lt;Widget: pk=2&gt;]
+</pre>
+<p>Passing a list of tags to <tt class="docutils literal"><span class="pre">get_by_model</span></tt> returns an intersection of
+objects which have those tags, i.e. tag1 AND tag2 ... AND tagN:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; thing_tag = Tag.objects.get(name='thing')
+&gt;&gt;&gt; TaggedItem.objects.get_by_model(Widget, [house_tag, thing_tag])
+[&lt;Widget: pk=1&gt;]
+</pre>
+<p>Functions which take tags are flexible when it comes to tag input:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; TaggedItem.objects.get_by_model(Widget, Tag.objects.filter(name__in=['house', 'thing']))
+[&lt;Widget: pk=1&gt;]
+&gt;&gt;&gt; TaggedItem.objects.get_by_model(Widget, 'house thing')
+[&lt;Widget: pk=1&gt;]
+&gt;&gt;&gt; TaggedItem.objects.get_by_model(Widget, ['house', 'thing'])
+[&lt;Widget: pk=1&gt;]
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="utilities">
+<h1><a class="toc-backref" href="#id30">Utilities</a></h1>
+<p>Tag-related utility functions are defined in the <tt class="docutils literal"><span class="pre">tagging.utils</span></tt>
+module:</p>
+<div class="section" id="parse-tag-input-input">
+<h2><a class="toc-backref" href="#id31"><tt class="docutils literal"><span class="pre">parse_tag_input(input)</span></tt></a></h2>
+<p>Parses tag input, with multiple word input being activated and
+delineated by commas and double quotes. Quotes take precedence, so they
+may contain commas.</p>
+<p>Returns a sorted list of unique tag names.</p>
+<p>See <a class="reference internal" href="#tag-input">tag input</a> for more details.</p>
+</div>
+<div class="section" id="edit-string-for-tags-tags">
+<h2><a class="toc-backref" href="#id32"><tt class="docutils literal"><span class="pre">edit_string_for_tags(tags)</span></tt></a></h2>
+<p>Given list of <tt class="docutils literal"><span class="pre">Tag</span></tt> instances, creates a string representation of the
+list suitable for editing by the user, such that submitting the given
+string representation back without changing it will give the same list
+of tags.</p>
+<p>Tag names which contain commas will be double quoted.</p>
+<p>If any tag name which isn't being quoted contains whitespace, the
+resulting string of tag names will be comma-delimited, otherwise it will
+be space-delimited.</p>
+</div>
+<div class="section" id="get-tag-list-tags">
+<h2><a class="toc-backref" href="#id33"><tt class="docutils literal"><span class="pre">get_tag_list(tags)</span></tt></a></h2>
+<p>Utility function for accepting tag input in a flexible manner.</p>
+<p>If a <tt class="docutils literal"><span class="pre">Tag</span></tt> object is given, it will be returned in a list as its
+single occupant.</p>
+<p>If given, the tag names in the following will be used to create a
+<tt class="docutils literal"><span class="pre">Tag</span></tt> <tt class="docutils literal"><span class="pre">QuerySet</span></tt>:</p>
+<blockquote>
+<ul class="simple">
+<li>A string, which may contain multiple tag names.</li>
+<li>A list or tuple of strings corresponding to tag names.</li>
+<li>A list or tuple of integers corresponding to tag ids.</li>
+</ul>
+</blockquote>
+<p>If given, the following will be returned as-is:</p>
+<blockquote>
+<ul class="simple">
+<li>A list or tuple of <tt class="docutils literal"><span class="pre">Tag</span></tt> objects.</li>
+<li>A <tt class="docutils literal"><span class="pre">Tag</span></tt> <tt class="docutils literal"><span class="pre">QuerySet</span></tt>.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="calculate-cloud-tags-steps-4-distribution-tagging-utils-logarithmic">
+<h2><a class="toc-backref" href="#id34"><tt class="docutils literal"><span class="pre">calculate_cloud(tags,</span> <span class="pre">steps=4,</span> <span class="pre">distribution=tagging.utils.LOGARITHMIC)</span></tt></a></h2>
+<p>Add a <tt class="docutils literal"><span class="pre">font_size</span></tt> attribute to each tag according to the frequency of
+its use, as indicated by its <tt class="docutils literal"><span class="pre">count</span></tt> attribute.</p>
+<p><tt class="docutils literal"><span class="pre">steps</span></tt> defines the range of font sizes - <tt class="docutils literal"><span class="pre">font_size</span></tt> will be an
+integer between 1 and <tt class="docutils literal"><span class="pre">steps</span></tt> (inclusive).</p>
+<p><tt class="docutils literal"><span class="pre">distribution</span></tt> defines the type of font size distribution algorithm
+which will be used - logarithmic or linear. It must be one of
+<tt class="docutils literal"><span class="pre">tagging.utils.LOGARITHMIC</span></tt> or <tt class="docutils literal"><span class="pre">tagging.utils.LINEAR</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="model-fields">
+<h1><a class="toc-backref" href="#id35">Model Fields</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">tagging.fields</span></tt> module contains fields which make it easy to
+integrate tagging into your models and into the
+<tt class="docutils literal"><span class="pre">django.contrib.admin</span></tt> application.</p>
+<div class="section" id="field-types">
+<h2><a class="toc-backref" href="#id36">Field types</a></h2>
+<div class="section" id="tagfield">
+<h3><a class="toc-backref" href="#id37"><tt class="docutils literal"><span class="pre">TagField</span></tt></a></h3>
+<p>A <tt class="docutils literal"><span class="pre">CharField</span></tt> that actually works as a relationship to tags &quot;under
+the hood&quot;.</p>
+<p>Using this example model:</p>
+<pre class="literal-block">
+class Link(models.Model):
+    ...
+    tags = TagField()
+</pre>
+<p>Setting tags:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; l = Link.objects.get(...)
+&gt;&gt;&gt; l.tags = 'tag1 tag2 tag3'
+</pre>
+<p>Getting tags for an instance:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; l.tags
+'tag1 tag2 tag3'
+</pre>
+<p>Getting tags for a model - i.e. all tags used by all instances of the
+model:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; Link.tags
+'tag1 tag2 tag3 tag4 tag5'
+</pre>
+<p>This field will also validate that it has been given a valid list of
+tag names, separated by a single comma, a single space or a comma
+followed by a space, using the <tt class="docutils literal"><span class="pre">isTagList</span></tt> validator from
+<tt class="docutils literal"><span class="pre">tagging.validators</span></tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="form-fields">
+<h1><a class="toc-backref" href="#id38">Form fields</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">tagging.forms</span></tt> module contains a <tt class="docutils literal"><span class="pre">Field</span></tt> for use with
+Django's <a class="reference external" href="http://www.djangoproject.com/documentation/newforms/">newforms library</a> which takes care of validating tag name
+input when used in your forms.</p>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id39">Field types</a></h2>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id40"><tt class="docutils literal"><span class="pre">TagField</span></tt></a></h3>
+<p>A form <tt class="docutils literal"><span class="pre">Field</span></tt> which is displayed as a single-line text input, which
+validates that the input it receives is a valid list of tag names.</p>
+<p>When you generate a form for one of your models automatically, using
+the <tt class="docutils literal"><span class="pre">ModelForm</span></tt> class provided by newforms, any
+<tt class="docutils literal"><span class="pre">tagging.fields.TagField</span></tt> fields in your model will automatically be
+represented by a <tt class="docutils literal"><span class="pre">tagging.forms.TagField</span></tt> in the generated form.</p>
+</div>
+</div>
+</div>
+<div class="section" id="simplified-tagging-and-retrieval-of-tags-with-properties">
+<h1><a class="toc-backref" href="#id41">Simplified tagging and retrieval of tags with properties</a></h1>
+<p>If you're not using <tt class="docutils literal"><span class="pre">TagField</span></tt>, a useful method for simplifying
+tagging and retrieval of tags for your models is to set up a
+property:</p>
+<pre class="literal-block">
+from django.db import models
+from tagging.models import Tag
+
+class MyModel(models.Model):
+    name = models.CharField(maxlength=100)
+    tag_list = models.CharField(maxlength=255)
+
+    def save(self):
+        super(MyModel, self).save()
+        self.tags = self.tag_list
+
+    def _get_tags(self):
+        return Tag.objects.get_for_object(self)
+
+    def _set_tags(self, tag_list):
+        Tag.objects.update_tags(self, tag_list)
+
+    tags = property(_get_tags, _set_tags)
+
+    def __unicode__(self):
+        return self.name
+</pre>
+<p>Once you've set this up, you can access and set tags in a fairly
+natural way:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; obj = MyModel.objects.get(pk=1)
+&gt;&gt;&gt; obj.tags = 'foo bar'
+&gt;&gt;&gt; obj.tags
+[&lt;Tag: bar&gt;, &lt;Tag: foo&gt;]
+</pre>
+<p>Remember that <tt class="docutils literal"><span class="pre">obj.tags</span></tt> will return a <tt class="docutils literal"><span class="pre">QuerySet</span></tt>, so you can
+perform further filtering on it, should you need to.</p>
+</div>
+<div class="section" id="generic-views">
+<h1><a class="toc-backref" href="#id42">Generic views</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">tagging.views</span></tt> module contains views to handle simple cases of
+common display logic related to tagging.</p>
+<div class="section" id="tagging-views-tagged-object-list">
+<h2><a class="toc-backref" href="#id43"><tt class="docutils literal"><span class="pre">tagging.views.tagged_object_list</span></tt></a></h2>
+<p><strong>Description:</strong></p>
+<p>A view that displays a list of objects for a given model which have a
+given tag. This is a thin wrapper around the
+<tt class="docutils literal"><span class="pre">django.views.generic.list_detail.object_list</span></tt> view, which takes a
+model and a tag as its arguments (in addition to the other optional
+arguments supported by <tt class="docutils literal"><span class="pre">object_list</span></tt>), building the appropriate
+<tt class="docutils literal"><span class="pre">QuerySet</span></tt> for you instead of expecting one to be passed in.</p>
+<p><strong>Required arguments:</strong></p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">model</span></tt>: The Django model class of the object that will be
+listed.</li>
+<li><tt class="docutils literal"><span class="pre">tag</span></tt>: The tag which objects of the given model must have in
+order to be listed.</li>
+</ul>
+</blockquote>
+<p><strong>Optional arguments:</strong></p>
+<p>Please refer to the <a class="reference external" href="http://www.djangoproject.com/documentation/generic_views/#django-views-generic-list-detail-object-list">object_list documentation</a> for additional optional
+arguments which may be given.</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">related_tags</span></tt>: If <tt class="docutils literal"><span class="pre">True</span></tt>, a <tt class="docutils literal"><span class="pre">related_tags</span></tt> context variable
+will also contain tags related to the given tag for the given
+model.</li>
+<li><tt class="docutils literal"><span class="pre">related_tag_counts</span></tt>: If <tt class="docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">related_tags</span></tt> is
+<tt class="docutils literal"><span class="pre">True</span></tt>, each related tag will have a <tt class="docutils literal"><span class="pre">count</span></tt> attribute
+indicating the number of items which have it in addition to the
+given tag.</li>
+</ul>
+</blockquote>
+<p><strong>Template context:</strong></p>
+<p>Please refer to the <a class="reference external" href="http://www.djangoproject.com/documentation/generic_views/#django-views-generic-list-detail-object-list">object_list documentation</a> for  additional
+template context variables which may be provided.</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">tag</span></tt>: The <tt class="docutils literal"><span class="pre">Tag</span></tt> instance for the given tag.</li>
+</ul>
+</blockquote>
+<div class="section" id="example-usage">
+<h3><a class="toc-backref" href="#id44">Example usage</a></h3>
+<p>The following sample URLconf demonstrates using this generic view to
+list items of a particular model class which have a given tag:</p>
+<pre class="literal-block">
+from django.conf.urls.defaults import *
+from tagging.views import tagged_object_list
+from shop.apps.products.models import Widget
+
+urlpatterns = patterns('',
+    url(r'^widgets/tag/(?P&lt;tag&gt;[^/]+)/$',
+        tagged_object_list,
+        dict(model=Widget, paginate_by=10, allow_empty=True,
+             template_object_name='widget'),
+        name='widget_tag_detail'),
+)
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="template-tags">
+<h1><a class="toc-backref" href="#id45">Template tags</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">tagging.templatetags.tagging_tags</span></tt> module defines a number of
+template tags which may be used to work with tags.</p>
+<div class="section" id="tag-reference">
+<h2><a class="toc-backref" href="#id46">Tag reference</a></h2>
+<div class="section" id="tags-for-model">
+<h3><a class="toc-backref" href="#id47">tags_for_model</a></h3>
+<p>Retrieves a list of <tt class="docutils literal"><span class="pre">Tag</span></tt> objects associated with a given model and
+stores them in a context variable.</p>
+<p>Usage:</p>
+<pre class="literal-block">
+{% tags_for_model [model] as [varname] %}
+</pre>
+<p>The model is specified in <tt class="docutils literal"><span class="pre">[appname].[modelname]</span></tt> format.</p>
+<p>Extended usage:</p>
+<pre class="literal-block">
+{% tags_for_model [model] as [varname] with counts %}
+</pre>
+<p>If specified - by providing extra <tt class="docutils literal"><span class="pre">with</span> <span class="pre">counts</span></tt> arguments - adds a
+<tt class="docutils literal"><span class="pre">count</span></tt> attribute to each tag containing the number of instances of
+the given model which have been tagged with it.</p>
+<p>Examples:</p>
+<pre class="literal-block">
+{% tags_for_model products.Widget as widget_tags %}
+{% tags_for_model products.Widget as widget_tags with counts %}
+</pre>
+</div>
+<div class="section" id="tag-cloud-for-model">
+<h3><a class="toc-backref" href="#id48">tag_cloud_for_model</a></h3>
+<p>Retrieves a list of <tt class="docutils literal"><span class="pre">Tag</span></tt> objects for a given model, with tag cloud
+attributes set, and stores them in a context variable.</p>
+<p>Usage:</p>
+<pre class="literal-block">
+{% tag_cloud_for_model [model] as [varname] %}
+</pre>
+<p>The model is specified in <tt class="docutils literal"><span class="pre">[appname].[modelname]</span></tt> format.</p>
+<p>Extended usage:</p>
+<pre class="literal-block">
+{% tag_cloud_for_model [model] as [varname] with [options] %}
+</pre>
+<p>Extra options can be provided after an optional <tt class="docutils literal"><span class="pre">with</span></tt> argument, with
+each option being specified in <tt class="docutils literal"><span class="pre">[name]=[value]</span></tt> format. Valid extra
+options are:</p>
+<blockquote>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">steps</span></tt></dt>
+<dd>Integer. Defines the range of font sizes.</dd>
+<dt><tt class="docutils literal"><span class="pre">min_count</span></tt></dt>
+<dd>Integer. Defines the minimum number of times a tag must have
+been used to appear in the cloud.</dd>
+<dt><tt class="docutils literal"><span class="pre">distribution</span></tt></dt>
+<dd>One of <tt class="docutils literal"><span class="pre">linear</span></tt> or <tt class="docutils literal"><span class="pre">log</span></tt>. Defines the font-size
+distribution algorithm to use when generating the tag cloud.</dd>
+</dl>
+</blockquote>
+<p>Examples:</p>
+<pre class="literal-block">
+{% tag_cloud_for_model products.Widget as widget_tags %}
+{% tag_cloud_for_model products.Widget as widget_tags with steps=9 min_count=3 distribution=log %}
+</pre>
+</div>
+<div class="section" id="tags-for-object">
+<h3><a class="toc-backref" href="#id49">tags_for_object</a></h3>
+<p>Retrieves a list of <tt class="docutils literal"><span class="pre">Tag</span></tt> objects associated with an object and stores
+them in a context variable.</p>
+<p>Usage:</p>
+<pre class="literal-block">
+{% tags_for_object [object] as [varname] %}
+</pre>
+<p>Example:</p>
+<pre class="literal-block">
+{% tags_for_object foo_object as tag_list %}
+</pre>
+</div>
+<div class="section" id="tagged-objects">
+<h3><a class="toc-backref" href="#id50">tagged_objects</a></h3>
+<p>Retrieves a list of instances of a given model which are tagged with a
+given <tt class="docutils literal"><span class="pre">Tag</span></tt> and stores them in a context variable.</p>
+<p>Usage:</p>
+<pre class="literal-block">
+{% tagged_objects [tag] in [model] as [varname] %}
+</pre>
+<p>The model is specified in <tt class="docutils literal"><span class="pre">[appname].[modelname]</span></tt> format.</p>
+<p>The tag must be an instance of a <tt class="docutils literal"><span class="pre">Tag</span></tt>, not the name of a tag.</p>
+<p>Example:</p>
+<pre class="literal-block">
+{% tagged_objects comedy_tag in tv.Show as comedies %}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

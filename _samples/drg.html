@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+	<base href="http://www.redips.net/javascript/drag-and-drop-table-content/" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="http://www.redips.net/wp-content/themes/default/style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+<div id="page">
+
+
+
+
+<div id="content" class="narrowcolumn">
+
+
+
+<div class="post" id="post-63">
+
+<div class="entry">
+
+<div id="drag">
+<table id="table1">
+<colgroup>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/></colgroup>
+<tr>
+<td class="mark">You</td>
+<td class="mark">can</td>
+<td class="mark">not</td>
+<td class="mark">drop</td>
+
+<td class="mark">here</td>
+</tr>
+<tr style="background-color: #eee">
+<td valign="middle">
+<div id="d1" class="drag t1">Drag</div>
+</td>
+<td></td>
+<td>
+<div id="d2" class="drag t1">and</div>
+</td>
+<td>
+<div id="d3" class="drag t1">drop</div>
+</td>
+
+<td></td>
+</tr>
+<tr>
+<td>
+<div id="d4" class="drag t1">content</div>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<div id="d5" class="drag t1">
+<select style="width: 60px"><option>table</option><option>drop</option><option>down</option><option>menu</option></select>
+
+</div>
+</td>
+</tr>
+<tr style="background-color: #eee">
+<td></td>
+<td>
+<div id="d6" class="drag t1">with</div>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+
+<div id="d7" class="drag t1">JavaScript</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr style="background-color: #eee">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<div id="d8" class="drag t1"><img id="smile_img" src="/wp-includes/images/smilies/icon_smile.gif"/></div>
+</td>
+</tr>
+</table>
+<table id="table2">
+
+<colgroup>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/></colgroup>
+<tr>
+<td class="mark" title="You can not drop here">Table2</td>
+<td style="background-color: #eee">
+<div id="d9" class="drag t2">and</div>
+</td>
+<td rowspan="3" style="background-color: #C6C8CB" title="rowspan 3"></td>
+<td style="background-color: #eee"></td>
+<td></td>
+</tr>
+
+<tr>
+<td>
+<div id="d10" class="drag t2">Drag</div>
+</td>
+<td style="background-color: #eee"></td>
+<td style="background-color: #eee">
+<div id="d11" class="drag t2">drop</div>
+</td>
+<td>
+<div id="d12" class="drag t2">table</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="background-color: #C6C8CB" title="colspan 2"></td>
+
+<td colspan="2" style="background-color: #C6C8CB" title="colspan 2"></td>
+</tr>
+<tr>
+<td colspan="2" style="background-color: #C6C8CB" title="colspan 2"></td>
+<td rowspan="3" style="background-color: #C6C8CB" title="rowspan 3"></td>
+<td colspan="2" style="background-color: #C6C8CB" title="colspan 2"></td>
+</tr>
+<tr>
+<td>
+<div id="d13" class="drag t2">
+<input type="text" style="width: 60px" value="content"/></div>
+</td>
+<td style="background-color: #eee"></td>
+<td style="background-color: #eee"></td>
+<td></td>
+</tr>
+<tr>
+
+<td></td>
+<td style="background-color: #eee">
+<div id="d14" class="drag t2">with</div>
+</td>
+<td style="background-color: #eee">
+<div id="d15" class="drag t2">JavaScript</div>
+</td>
+<td class="mark smile" title="Only smile can be placed here"></td>
+</tr>
+</table>
+<table id="table3">
+<colgroup>
+<col width="100"/>
+<col width="100"/>
+<col width="100"/>
+
+<col width="100"/>
+<col width="100"/></colgroup>
+<tr style="background-color: #eee">
+<td id="message" class="mark" title="You can not drop here">Table3</td>
+<p><!-- jump to smile image --></p>
+<td>
+<div id="link1" class="drag t3"><a href="#smile_img" title="Jump to the smile image (links can be used as well)">Smile</a></div>
+</td>
+<td></td>
+<td></td>
+<td>
+<div id="d16" class="drag t3">
+<input type="checkbox" name="cb1"/>
+<input type="checkbox" name="cb2"/>
+<input type="checkbox" name="cb3"/></div>
+
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+<div id="d17" class="drag t3 clone" title="infinite cloning">Clone</div>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<div id="d18" class="drag t3 clone climit1_3" title="Clone three elements">(1) Clone</div>
+</td>
+
+<td></td>
+<td></td>
+<td></td>
+<td>
+<div id="d19" class="drag t3 clone climit2_2" title="Clone two elements and die">(2) Clone</div>
+</td>
+</tr>
+<tr style="background-color: #eee">
+<td>
+<div id="d20" class="drag t3">
+<input type="radio" name="radio1"/>
+<input type="radio" name="radio1"/>
+<input type="radio" name="radio1"/></div>
+</td>
+<td></td>
+<td></td>
+
+<td></td>
+<td class="trash" title="Trash">Trash</td>
+</tr>
+</table>
+<div id="obj_new"></div>
+<div>
+<input type="button" value="Save" class="button" onclick="save()" title="Send content to the server"/><span class="message_line">Save content of the first table (it will only show accepted parameters)</span></div>
+<div>
+<input type="radio" name="drop_option" class="checkbox" onclick="set_drop_option(this)" value="multiple" title="Enable dropping to already taken table cells" checked="true"/><span class="message_line">Enable dropping to already taken table cells</span></div>
+<div>
+<input type="radio" name="drop_option" class="checkbox" onclick="set_drop_option(this)" value="single" title="Disable dropping to already taken table cells"/><span class="message_line">Disable dropping to already taken table cells</span></div>
+<div>
+<input type="radio" name="drop_option" class="checkbox" onclick="set_drop_option(this)" value="switch" title="Switch content"/><span class="message_line">Switch content</span></div>
+
+<div>
+<input type="checkbox" class="checkbox" onclick="toggle_delete_cloned(this)" title="Remove cloned object if dragged outside of any table" checked="true"/><span class="message_line">Remove cloned object if dragged outside of any table</span></div>
+<div>
+<input type="checkbox" class="checkbox" onclick="toggle_confirm(this)" title="Confirm before delete object" checked="true"/><span class="message_line">Confirm before delete object</span></div>
+<div>
+<input type="checkbox" class="checkbox" onclick="toggle_dragging(this)" title="Enable dragging" checked="true"/><span class="message_line">Enable dragging</span></div>
+</div>
+
+
+
+
+<style>
+#table1,#table2{margin-bottom:20px}
+#drag{width:530px;margin:auto}
+.drag{position:relative;cursor:move;z-index:10;background-color:#FFF;text-align:center;font-size:10pt;opacity:0.7;filter:alpha(opacity=70);width:87px;margin:auto}
+.t1{border:2px solid #499B33}
+.t2{border:2px solid #2D4B7A}
+.t3{border:2px solid #BF6A30}
+.mark{color:#FFF;background-color:#9B9EA2}
+.trash{color:#FFF;background-color:#2D4B7A}
+div#drag table{background-color:#e0e0e0;border-collapse:collapse}
+div#drag input{cursor:auto}
+div#drag td{height:32px;border:1px solid #FFF;text-align:center;font-size:10pt;padding:2px}
+.button{background-color:#6A93D4;color:#FFF;width:40px;border-width:1px;padding:0}
+.checkbox{margin-left:13px;margin-right:14px;width:13px}
+.message_line{padding-left:10px;margin-bottom:3px;font-size:10pt;color:#888}
+#obj_new{height:23px;width:10px}
+</style>
+
+<script type="text/javascript" src="/my/drag.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+REDIPS.drag.init();
+REDIPS.drag.marked_exception.d8 = 'smile';
+// prepare handlers
+REDIPS.drag.myhandler_clicked    = function () {document.getElementById('message').innerHTML = 'Clicked'}
+REDIPS.drag.myhandler_moved      = function () {document.getElementById('message').innerHTML = 'Moved'}
+REDIPS.drag.myhandler_notmoved   = function () {document.getElementById('message').innerHTML = 'Not moved'}
+REDIPS.drag.myhandler_dropped    = function () {document.getElementById('message').innerHTML = 'Dropped'}
+REDIPS.drag.myhandler_switched   = function () {document.getElementById('message').innerHTML = 'Switched'}
+REDIPS.drag.myhandler_clonedend1 = function () {document.getElementById('message').innerHTML = 'Cloned end1'}
+REDIPS.drag.myhandler_clonedend2 = function () {document.getElementById('message').innerHTML = 'Cloned end2'}
+REDIPS.drag.myhandler_notcloned  = function () {document.getElementById('message').innerHTML = 'Not cloned'}
+REDIPS.drag.myhandler_deleted    = function () {document.getElementById('message').innerHTML = 'Deleted'}
+REDIPS.drag.myhandler_undeleted  = function () {document.getElementById('message').innerHTML = 'Undeleted'}
+REDIPS.drag.myhandler_cloned     = function () {
+document.getElementById('message').innerHTML = 'Cloned'
+REDIPS.drag.obj.innerHTML += 'd';
+}
+}
+function toggle_confirm(chk) {
+REDIPS.drag.trash_ask = chk.checked;
+}
+function toggle_delete_cloned(chk) {
+REDIPS.drag.delete_cloned = chk.checked;
+}
+function toggle_dragging(chk) {
+REDIPS.drag.enable_drag(chk.checked);
+}
+function set_drop_option(radio_button) {
+REDIPS.drag.drop_option = radio_button.value;
+}
+function save(){
+var content = REDIPS.drag.save_content(0);
+if (content === '') {
+alert('Table is empty!');
+}
+else {
+window.open('/my/multiple-parameters.php?' + content, 'Mypop', 'width=350,height=160,scrollbars=yes');
+}
+}
+</script>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div><!-- div page -->
+</body>
+</html>

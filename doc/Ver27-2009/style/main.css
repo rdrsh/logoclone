@@ -1,0 +1,349 @@
+body {font-family: Arial,Helvetica,sans-serif;background-color:#fff;color:#000;margin:0;padding:0;}
+body,html {height:100%;}
+table {border-collapse:collapse;font-size:100%;margin:0;}
+td {margin:0;padding:0;vertical-align:top;}
+img {margin:0;border-width:0px;}
+a {text-decoration:underline;color:#303030;}
+a:hover {text-decoration:none;color:#2FA8E7;}
+
+button {
+        background-color : #ccc;
+        color : #fff;
+        font-weight : bold;
+        border : 2px solid #ccc;
+       }
+
+/* delete float */
+.clear{
+        clear:both;
+        overflow:hidden;
+        height:1px;
+      }
+
+/* header */
+.header {
+         width: 100%;
+        }
+
+     .header .logoclone {
+                         padding: 50px 0px 0px 60px;
+                        }
+/* menu */
+
+.header .menu {
+               font-size: 14px;
+               font-family: Verdana;
+               padding-top: 40px;
+               padding-left: 51px;
+               white-space: nowrap;
+              }
+
+      .header .menu a {
+                       color: #666;
+                       background-color: #fff;
+                       padding: 3px 8px 2px 8px;
+                       border-top: 1px solid #ccc;
+                       border-left: 1px solid #ccc;
+                       border-right: 1px solid #ccc;
+                       text-decoration: none;
+                      }
+
+      .header .menu a:hover {
+                             border-bottom: 1px solid #444;
+                             background-color: #666;
+                             color: white;
+                            }
+
+      .header .menu span {
+                          color: #fff;
+                          background-color: #0270C9;
+                          border: 1px solid #0270C9;
+                          padding: 3px 8px 2px 8px;
+                         }
+
+/* content */
+.cont{
+      padding-left: 60px;
+      color:#666;
+      background-color: #fff;
+     }
+
+/* bloglist */
+     .cont .sepline {
+                     padding: 4px;
+                     margin: -3px 0px 5px -9px;
+                     width: 100%;
+                     background-color: #0270C9;
+                    }
+
+
+     .cont .bloglist {
+                      float: left;
+                      width: 70%;
+                      padding: 5px 40px 30px 0px;
+                      background-color: #fff;
+                     }
+
+
+     .cont .bloglist .blogrelated {
+                                   font-size: 14px;
+                                  }
+
+     .cont .bloglist .blogdate {
+                               }
+
+     .cont .bloglist .blog {
+                            font-size: 10px;
+                            color: #8C8C8C;
+                            padding-bottom: 10px;
+                            padding-top: 15px;
+                           }
+
+     .cont .bloglist .blog .blogheader {
+                                        letter-spacing:-0.04em;
+                                        font-size: 30px;
+                                        color: #B46818;
+                                       }
+
+     .cont .bloglist .blog .blogheader a {
+                                          color: #0270C9;
+                                          text-decoration: none;
+                                         }
+
+     .cont .bloglist .blog .blogheader a.category {
+                                                   color: #777;
+                                                  }
+
+     .cont .bloglist .blog .authorinfo {
+                                        padding-top: 17px;
+                                        color: #666;
+                                       }
+
+     .cont .bloglist .blog .authorinfo .authorimg {
+                                                   float: left;
+                                                  }
+
+     .cont .bloglist .blog .authorinfo .authorname {
+                                                    margin-left: 65px;
+                                                    font-size: 14px;
+                                                   }
+
+     .cont .bloglist .blog .authorinfo .authorname a {
+                                                      color: #8EBD33;
+                                                     }
+
+     .cont .bloglist .blog .authorinfo .authorpostcounter {
+                                                           margin-left: 65px;
+                                                           padding-top: 3px;
+                                                           font-size: 12px;
+                                                          }
+
+     .cont .bloglist .blog .blogbody {
+                                      font-size: 14px;
+                                      color: #666;
+                                      margin-top: 10px;
+                                     }
+
+     .cont .bloglist .blogrelated a,
+     .cont .bloglist .blog .blogbody a {
+                                        color: #0270C9;
+                                       }
+
+     .cont .bloglist .blogrelated a:visited,
+     .cont .bloglist .blog .blogbody a:visited {
+                                                color: #999;
+                                               }
+
+     .cont .bloglist .blog .blogbody .pquote {
+                                              font-size: 12px;
+                                              font-style: italic;
+                                              margin-left: 10px;
+                                              border-left: 1px solid #ddd;
+                                              padding-left: 10px;
+                                             }
+
+     .cont .bloglist .blog .blogcommline {
+                                          margin-top: 7px;
+                                          border-bottom: 1px dotted #ccc;
+                                          border-top: 1px dotted #ccc;
+                                          padding-top: 6px;
+                                          padding-bottom: 6px;
+                                          font-size: 11px;
+                                         }
+
+     .cont .bloglist .blog .blogcommline a {
+                                            color: #B46818;
+                                            text-decoration: none;
+                                           }
+
+     .cont .bloglist .blog .blogcommline a:visited {
+                                                    font-weight: normal;
+                                                   }
+
+     .cont .bloglist .blog .blogcommline .comment {
+                                                  }
+
+     .cont .bloglist .blog .blogimage {
+                                       font-size: 12px;
+                                       padding-top: 10px;
+                                      }
+
+     .cont .bloglist .blogcomment {
+                                   padding-top: 3px;
+                                   color: #666;
+                                  }
+
+     .cont .bloglist .blogcomment h2 {
+                                      color: #B46818;
+                                     }
+
+     .cont .bloglist .blogcomment .comment {
+                                            padding-top: 20px;
+                                            padding-bottom: 20px;
+                                            border-bottom: 1px dotted #ccc;
+                                           }
+
+     .cont .bloglist .blogcomment .comment .commentauthorimg {
+                                                               float: left;
+                                                               padding-right: 10px;
+                                                               padding-bottom: 5px;
+                                                             }
+
+     .cont .bloglist .blogcomment .comment .commentauthorname {
+                                                                font-size: 14px;
+                                                              }
+
+     .cont .bloglist .blogcomment .comment .commentauthorname a {
+                                                                 color: #8EBD33;
+                                                                }
+
+     .cont .bloglist .blogcomment .comment .commentdate  {
+                                                          padding-top: 3px;
+                                                          font-size: 12px;
+                                                         }
+
+     .cont .bloglist .blogcomment .comment .commentbody  {
+                                                          padding-top: 3px;
+                                                          font-size: 14px;
+                                                         }
+
+     .cont .bloglist .addcomment {
+                                  padding-top: 10px;
+                                 }
+
+     .cont .bloglist .addcomment .addcomment_header {
+                                                     padding-top: 10px;
+                                                     padding-bottom: 7px;
+                                                     font-size: 22px;
+                                                     color: #B46818;
+                                                    }
+
+     .cont .bloglist .addcomment .addcomment_inputname {
+                                                        padding-top: 10px;
+                                                        font-weight: bold;
+                                                       }
+
+     .cont .bloglist .addcomment .addcomment_inputmail {
+                                                        padding-top: 10px;
+                                                        font-weight: bold;
+                                                       }
+
+     .cont .bloglist .addcomment .addcomment_text {
+                                                   padding-top: 10px;
+                                                  }
+
+     .cont .bloglist .addcomment .addcomment_subscribe {
+                                                        padding-top: 10px;
+                                                       }
+
+     .cont .bloglist .addcomment .addcomment_button {
+                                                     padding-top: 10px;
+                                                    }
+
+/* rightcol */
+
+     .cont .rightcol {
+                     }
+
+     .cont .rightcol .loginform {
+                                }
+
+     .cont .rightcol .loginform .auth_login_text {
+                                                  padding-bottom: 20px;
+                                                 }
+
+     .cont .rightcol .loginform .auth_login_text span {
+                                                       font-size: 22px;
+                                                       margin-left: 30px;
+                                                      }
+
+     .cont .rightcol .loginform .auth_login_inputlog,
+     .cont .rightcol .loginform .auth_login_inputpass  {
+                                                        padding-top: 3px;
+                                                       }
+
+      .cont .rightcol .loginform .auth_login_inputlog span,
+      .cont .rightcol .loginform .auth_login_inputpass span
+                                                            {
+                                                             font-size:12px;
+                                                             margin-left: 30px;
+                                                            }
+
+      .cont .rightcol .loginform .auth_login_inputlog input,
+      .cont .rightcol .loginform .auth_login_inputpass input
+                                                             {
+                                                              font-size:10px;
+                                                              line-height: 12px;
+                                                              width: 120px;
+                                                             }
+
+      .cont .rightcol .loginform .auth_login_inputlog input
+                                                             {
+                                                              margin-left: 19px;
+                                                             }
+
+      .cont .rightcol .loginform .auth_login_inputpass input
+                                                             {
+                                                              margin-left: 8px;
+                                                             }
+
+
+      .cont .rightcol .loginform .auth_login_button {
+                                                     text-align: left;
+                                                     padding-top: 10px;
+                                                     padding-bottom: 20px;
+                                                    }
+
+      .cont .rightcol .loginform .auth_login_button button {
+                                                            margin-left: 138px;
+                                                           }
+/* pagelisting */
+
+     .cont .bloglist .pagelisting {
+                                   border-top: 1px dotted #ccc;
+                                   font-size: 14px;
+                                   margin-top: 10px;
+                                   padding-top: 10px;
+                                   color: #666;
+                                  }
+
+     .cont .bloglist .pagelisting a {
+                                     text-decoration: none;
+                                     color: #666;
+                                    }
+
+     .cont .bloglist .pagelisting span {
+                                        font-size: 18px;
+                                        color: #8C8C8C;
+                                       }
+
+/* footer */
+.footer {
+         width: 100%;
+        }
+
+     .footer .copyright {
+                         font-size: 12px;
+                         color: #bbbbbb;
+                         padding: 20px 0px 20px 00px;
+                        }

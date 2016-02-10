@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load comments %}
+
+{% block title %}{{ post.title }}{% endblock %} 
+{% block body-id %}post{% endblock %} 
+
+{% block content %}
+{% get_comment_count for post as comment_count %}
+{% get_comment_list for post as comment_list %}
+
+<h2 class="entry-title"><a href="/post/{{ post.id }}/">{{ post.title }}</a></h2>
+<div class="comments"><a href="/post/{{ post.id }}/#comments">Комментaриев ({{ comment_count }})</a></div>
+<div class="article wysiwyg">{% autoescape off %}{{ post.content }}{% endautoescape %}</div>
+{% if post.logo_ids %}
+<div class="article-logos">{% for i in post.logo_list %}<img src="/{{ i.img }}"/>{% endfor %}</div>
+{% endif %}
+<hr/>
+
+<h2 id="comments">Комментарии ({{ comment_count }})</h2>
+<ul>{% for i in comment_list %}<li>{{ i }}</li>{% endfor %}</ul>
+
+	<h2>Оставить комментарий</h2>
+{% if request.user.is_authenticated %}
+	{% if success %}Коментарий оставлен{% endif %}
+	<form action="" method="post">
+		<table>
+		{{ form.as_table }}
+		</table>
+		<input type="submit" class="submit" value="Коментировать">
+	</form>
+{% else %}
+	Только авторизованные пользователи могут оставлять комментарии. Авторизуйтесь, пожалуйста.
+{% endif %}
+
+
+
+
+
+{% endblock %}

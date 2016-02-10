@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load comments %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+{% block body-id %}blog{% endblock %}
+
+{% block content %}
+{% include 'post-list.html' %}
+{% endblock %} 

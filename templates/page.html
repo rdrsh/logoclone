@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block body-id %}page{% endblock %}
+
+{% block content %}
+    <div class="wysiwyg">{% autoescape off %}{{ page.content }}{% endautoescape %}</div>
+{% endblock %} 

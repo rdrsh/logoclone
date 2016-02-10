@@ -1,0 +1,23 @@
+{% extends "admin/change_list.html" %}
+
+{% block extrahead2 %}
+
+<style type="text/css" media="screen">
+td, th { vertical-align:middle; }
+</style>
+
+<script type="text/javascript">
+// <![CDATA[
+$(document).ready(function(){
+    $('th a').each(function(){
+        var s = $(this).text()
+        if (s.search(/^\/img\/img\//) != -1) {
+            s = '<img src="'+s+'"/> '+s
+            $(this).html(s)
+        }
+    })
+});
+// ]]>
+</script>
+
+{% endblock %}
